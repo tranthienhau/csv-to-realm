@@ -21,7 +21,7 @@ final class ObjectMapper: ObjectMapping {
     func map(dictionary: [String : String]) -> Object? {
         let object = type.init()
         for (key, value) in dictionary {
-            object.setValue(value, forKey: key)
+            object.setValue(value, forKey: key.lowercased())
         }
         return object
     }
