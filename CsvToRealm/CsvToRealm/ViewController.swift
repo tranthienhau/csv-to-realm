@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
 
     func parseCsv() {
-        let mapper = ObjectMapper(type: ElectionRecord.self)
+        let mapper = ObjectMapper(type: ElectionStateRecord.self)
         let parser = CsvParser(mapper: mapper)
         let datas = try! parser.parse(fileName: "1976-2020-president", delimiter: ",")
         print(datas)
