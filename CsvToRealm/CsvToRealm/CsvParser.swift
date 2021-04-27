@@ -9,7 +9,7 @@ import Foundation
 import SwiftCSV
 
 protocol CsvParsing {
-    func parse(fileName: String, delimiter: Character) throws -> [[String: Any]]
+    func parse(fileName: String, delimiter: Character) throws
 }
 
 final class CsvParser: CsvParsing {
@@ -20,7 +20,7 @@ final class CsvParser: CsvParsing {
         self.repository = repository
     }
     
-    func parse(fileName: String, delimiter: Character) throws -> [[String: Any]] {
+    func parse(fileName: String, delimiter: Character) throws {
         do {
             if let resource: CSV = try CSV(
                 name: fileName,
@@ -31,16 +31,14 @@ final class CsvParser: CsvParsing {
                 try resource.enumerateAsDict { [weak self] dict in
                     guard let self = self else { return }
                     if let record = self.mapper.map( dictionary: dict) {
-                    do {
-                        try self.repository.save(object: record)
-                    } catch {
-                        
-                    }
+                        do {
+                            try self.repository.save(object: record)
+                        } catch {
+                            
+                        }
                     }
                 }
-                return []
             }
-            return []
         } catch {
             throw error
         }
