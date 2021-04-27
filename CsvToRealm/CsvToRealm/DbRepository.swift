@@ -15,7 +15,7 @@ final class DbRepository: DbRepositoring {
     private let realm: Realm
     init() {
         var config = Realm.Configuration.defaultConfiguration
-        print(config.fileURL)
+        print("Database created here \(config.fileURL)")
         config.deleteRealmIfMigrationNeeded = true
         self.realm = try! Realm(configuration: config)
     }
