@@ -20,6 +20,8 @@
 		26FBCD6A26384F6200EFA1FF /* ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCD6926384F6200EFA1FF /* ObjectMapper.swift */; };
 		26FBCD6F26385D7100EFA1FF /* DbRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCD6E26385D7100EFA1FF /* DbRepository.swift */; };
 		26FBCD7726385F5000EFA1FF /* ElectionStateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCD7626385F5000EFA1FF /* ElectionStateRecord.swift */; };
+		26FBCD822638685D00EFA1FF /* countypres_2000-2016.csv in Resources */ = {isa = PBXBuildFile; fileRef = 26FBCD812638685D00EFA1FF /* countypres_2000-2016.csv */; };
+		26FBCD882638688400EFA1FF /* ElectionCountyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCD872638688400EFA1FF /* ElectionCountyRecord.swift */; };
 		939F96D71DDA00EA4135F57F /* Pods_CsvToRealmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5872C400E709CD33FA10AD5 /* Pods_CsvToRealmTests.framework */; };
 		959E3EBE12C134E5B7C96AE4 /* Pods_CsvToRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDE339AFFA4D87904E025F4 /* Pods_CsvToRealm.framework */; };
 		C9AC992ACC65C36662E3D659 /* Pods_CsvToRealm_CsvToRealmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FB932B608CFCD5DC72D9A0 /* Pods_CsvToRealm_CsvToRealmUITests.framework */; };
@@ -65,6 +67,8 @@
 		26FBCD6926384F6200EFA1FF /* ObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectMapper.swift; sourceTree = "<group>"; };
 		26FBCD6E26385D7100EFA1FF /* DbRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbRepository.swift; sourceTree = "<group>"; };
 		26FBCD7626385F5000EFA1FF /* ElectionStateRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionStateRecord.swift; sourceTree = "<group>"; };
+		26FBCD812638685D00EFA1FF /* countypres_2000-2016.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "countypres_2000-2016.csv"; sourceTree = "<group>"; };
+		26FBCD872638688400EFA1FF /* ElectionCountyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionCountyRecord.swift; sourceTree = "<group>"; };
 		3C7122E47EB06BC89903CA7B /* Pods-CsvToRealm-CsvToRealmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CsvToRealm-CsvToRealmUITests.release.xcconfig"; path = "Target Support Files/Pods-CsvToRealm-CsvToRealmUITests/Pods-CsvToRealm-CsvToRealmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5FE3F74034C814AD0F5CD796 /* Pods-CsvToRealmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CsvToRealmTests.release.xcconfig"; path = "Target Support Files/Pods-CsvToRealmTests/Pods-CsvToRealmTests.release.xcconfig"; sourceTree = "<group>"; };
 		B7F82DC04F7B569F1B46ECCE /* Pods-CsvToRealmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CsvToRealmTests.debug.xcconfig"; path = "Target Support Files/Pods-CsvToRealmTests/Pods-CsvToRealmTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,18 +130,19 @@
 		269EE736263840D40074481C /* CsvToRealm */ = {
 			isa = PBXGroup;
 			children = (
+				26FBCD862638687200EFA1FF /* Models */,
 				269EE737263840D40074481C /* AppDelegate.swift */,
 				269EE739263840D40074481C /* SceneDelegate.swift */,
 				269EE73B263840D40074481C /* ViewController.swift */,
 				269EE73D263840D40074481C /* Main.storyboard */,
 				269EE740263840D70074481C /* Assets.xcassets */,
 				269EE77E263845110074481C /* 1976-2020-president.csv */,
+				26FBCD812638685D00EFA1FF /* countypres_2000-2016.csv */,
 				269EE742263840D70074481C /* LaunchScreen.storyboard */,
 				269EE745263840D70074481C /* Info.plist */,
 				269EE7792638449D0074481C /* CsvParser.swift */,
 				26FBCD6926384F6200EFA1FF /* ObjectMapper.swift */,
 				26FBCD6E26385D7100EFA1FF /* DbRepository.swift */,
-				26FBCD7626385F5000EFA1FF /* ElectionStateRecord.swift */,
 			);
 			path = CsvToRealm;
 			sourceTree = "<group>";
@@ -158,6 +163,15 @@
 				269EE75B263840D80074481C /* Info.plist */,
 			);
 			path = CsvToRealmUITests;
+			sourceTree = "<group>";
+		};
+		26FBCD862638687200EFA1FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				26FBCD7626385F5000EFA1FF /* ElectionStateRecord.swift */,
+				26FBCD872638688400EFA1FF /* ElectionCountyRecord.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		569294CE54314B4C483E1810 /* Frameworks */ = {
@@ -294,6 +308,7 @@
 				269EE77F263845110074481C /* 1976-2020-president.csv in Resources */,
 				269EE744263840D70074481C /* LaunchScreen.storyboard in Resources */,
 				269EE741263840D70074481C /* Assets.xcassets in Resources */,
+				26FBCD822638685D00EFA1FF /* countypres_2000-2016.csv in Resources */,
 				269EE73F263840D40074481C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26FBCD7726385F5000EFA1FF /* ElectionStateRecord.swift in Sources */,
+				26FBCD882638688400EFA1FF /* ElectionCountyRecord.swift in Sources */,
 				269EE73C263840D40074481C /* ViewController.swift in Sources */,
 				269EE738263840D40074481C /* AppDelegate.swift in Sources */,
 				269EE73A263840D40074481C /* SceneDelegate.swift in Sources */,
