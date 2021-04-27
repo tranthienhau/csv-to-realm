@@ -14,8 +14,10 @@ protocol CsvParsing {
 
 final class CsvParser: CsvParsing {
     private let mapper: ObjectMapping
-    init(mapper: ObjectMapping) {
+    private let repository: DbRepositoring
+    init(mapper: ObjectMapping, repository: DbRepositoring) {
         self.mapper = mapper
+        self.repository = repository
     }
     
     func parse(fileName: String, delimiter: Character) throws -> [[String: Any]] {
@@ -28,8 +30,13 @@ final class CsvParser: CsvParsing {
                 encoding: .utf8) {
                 try resource.enumerateAsDict { [weak self] dict in
                     guard let self = self else { return }
-                    let record = self.mapper.map( dictionary: dict)
-                    
+                    if let record = self.mapper.map( dictionary: dict) {
+                    do {
+                        try self.repository.save(object: record)
+                    } catch {
+                        
+                    }
+                    }
                 }
                 return []
             }

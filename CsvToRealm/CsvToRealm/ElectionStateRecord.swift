@@ -8,6 +8,7 @@
 import RealmSwift
 
 class ElectionStateRecord: Object {
+    @objc dynamic var _id = ObjectId.generate()
     @objc dynamic var party_simplified: String?
     @objc dynamic var party_detailed: String?
     @objc dynamic var state_po: String?
@@ -23,5 +24,9 @@ class ElectionStateRecord: Object {
     @objc dynamic var office: String?
     @objc dynamic var state_cen: String?
     @objc dynamic var notes: String?
+    
+    override static func primaryKey() -> String? {
+        return "_id"
+    }
 }
 
